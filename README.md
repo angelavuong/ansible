@@ -1,6 +1,6 @@
 # Azure + Ansible Demo
 
-## Pre-requites
+## Prerequisites
 
 ### Obtain Azure Account
 
