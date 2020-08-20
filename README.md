@@ -209,7 +209,7 @@ We will create a security group that allows SSH traffic (via port 22) to the VM:
 
 **Section 6: Create virtual network interface card**
 
-This will createa  virtual NIC that connects the VM to the virtual network:
+This will create a  virtual NIC that connects the VM to the virtual network:
 ```
 - name: Create virtual network interface card
   azure_rm_networkinterface:
