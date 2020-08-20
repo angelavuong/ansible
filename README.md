@@ -328,6 +328,38 @@ $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
 [azureuser@myVM ~]$
 ```
 
+## Part 3: Install Apache on the new VM
+
+1. Let's create an inventory file on our Ansible host that includes the new VM's public IP address
+
+```
+[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo mkdir /etc/ansible
+[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo touch /etc/ansible/hosts
+[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ vi /etc/ansible/hosts
+```
+
+And add the name of your node with its allocated public IP address:
+```
+myVM ansible_host=<public_ip_address>
+```
+
+Save and close (```:wq!```).
+
+2. Let's run a quick ping test to the host using the Ansible CLI:
+
+```
+[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ ansible all -m ping
+myVM | SUCCESS => {
+
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
+
+Great! We know our inventory file correctly lists our VM and Ansible is able to reach it!
 
 ## Resources:
 1. [Microsoft Docs - Build Ansible VM in Azure](https://docs.microsoft.com/en-us/azure/developer/ansible/install-on-linux-vm)
