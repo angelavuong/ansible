@@ -210,6 +210,8 @@ $ ssh-keygen -m PEM -t rsa -b 4096
 
 Be sure to update \<your-key-data\> with your public SSH key (should be in ~/.ssh/id_rsa.pub). You can want to paste the entire SSH public key. For example: "ssh-rsa AAAB6d9c7ede mykey".
 
+Full details and explanation on each playbook section can be found [here](https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fansible%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fbreadcrumb%2Ftoc.json#complete-sample-ansible-playbook).
+
 4. To run the playbook, run the following in terminal:
 ```
 $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
