@@ -54,7 +54,7 @@
       ssh_password_enabled: false
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: <your-key-data>
+          key_data: <ssh_public_key>
       network_interfaces: myNIC
       image:
         offer: CentOS
