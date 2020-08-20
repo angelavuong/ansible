@@ -207,7 +207,7 @@ $ ssh-keygen -m PEM -t rsa -b 4096
         version: latest
   ```
 
-Be sure to update <your-key-data> with your public SSH key (should be in ~/.ssh/id_rsa.pub).
+Be sure to update <your-key-data> with your public SSH key (should be in ~/.ssh/id_rsa.pub). You can want to paste the entire SSH public key. For example: "ssh-rsa AAAB6d9c7ede mykey".
 
 4. To run the playbook, run the following in terminal:
 ```
