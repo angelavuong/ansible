@@ -328,7 +328,7 @@ $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
 [azureuser@myVM ~]$
 ```
 
-## Part 3: Install Apache on the new VM
+## Part 3: Build an inventory file
 
 1. Let's create an inventory file on our Ansible host that includes the new VM's public IP address
 
