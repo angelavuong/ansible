@@ -144,7 +144,104 @@ $ ssh-keygen -m PEM -t rsa -b 4096
 [azureuser@QuickstartAnsible-vm ~]$
 ```
 
-3. And using ```i``` for insert, paste the contents below to create a VM using Ansible:
+**Section 1: Create a resource group**
+
+This will create a resource group called "myResourceGroup" in the ```eastus``` location:
+```
+- name: Create resource group
+  azure_rm_resourcegroup:
+    name: myResourceGroup
+    location: eastus
+```
+
+**Section 2: Create a virtual network**
+
+Adding a virtual network will allow our VM to be accessed:
+```
+- name: Create virtual network
+  azure_rm_virtualnetwork:
+    resource_group: myResourceGroup
+    name: myVnet
+    address_prefixes: "10.0.0.0/16"
+```
+
+**Section 3: Creating a subnet**
+
+All VM resources are deployed into a subnet within a virtual network. So we need to add a subnet for our VM:
+```
+- name: Add subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    name: mySubnet
+    address_prefix: "10.0.1.0/24"
+    virtual_network: myVnet
+```
+
+**Section 4: Create a public IP address**
+
+We will ask Azure to dynamically assign an available public IP address to our VM instance. This will enable reachability of the VM from outside our network (via the Internet).
+```
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: myResourceGroup
+    allocation_method: Static
+    name: myPublicIP
+```
+
+**Section 5: Create a network security group**
+
+We will create a security group that allows SSH traffic (via port 22) to the VM:
+```
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: myResourceGroup
+    name: myNetworkSecurityGroup
+    rules:
+      - name: SSH
+        protocol: Tcp
+        destination_port_range: 22
+        access: Allow
+        priority: 1001
+        direction: Inbound
+```
+
+**Section 6: Create virtual network interface card**
+
+This will createa  virtual NIC that connects the VM to the virtual network:
+```
+- name: Create virtual network interface card
+  azure_rm_networkinterface:
+    resource_group: myResourceGroup
+    name: myNIC
+    virtual_network: myVnet
+    subnet: mySubnet
+    public_ip_name: myPublicIP
+    security_group: myNetworkSecurityGroup
+```
+
+**Section 7: Create a virtual machine**
+
+Lastly, we will create a VM called "myVM":
+```
+- name: Create VM
+  azure_rm_virtualmachine:
+    resource_group: myResourceGroup
+    name: myVM
+    vm_size: Standard_DS1_v2
+    admin_username: azureuser
+    ssh_password_enabled: false
+    ssh_public_keys:
+      - path: /home/azureuser/.ssh/authorized_keys
+        key_data: <your-key-data>
+    network_interfaces: myNIC
+    image:
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.5'
+      version: latest
+```
+
+3. Here is the complete playbook. Use ```i``` for insert, paste the contents below to create a VM using Ansible:
 
 ```
 - name: Create Azure VM
