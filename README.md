@@ -77,11 +77,11 @@
 
 6. Verify you can login to your Ansible VM from your local system using SSH:
 
-  ```
-  $ ssh -i ansible_rsa azureuser@<vm_ip_address>
-  [azureuser@QuickstartAnsible-vm ~]$
-  [azureuser@QuickstartAnsible-vm ~]$
-  ```
+    ```
+    $ ssh -i ansible_rsa azureuser@<vm_ip_address>
+    [azureuser@QuickstartAnsible-vm ~]$
+    [azureuser@QuickstartAnsible-vm ~]$
+    ```
 
 7. Set up your Ansible credentials for the VM.
 
