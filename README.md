@@ -74,3 +74,11 @@
      --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-ansible-control-machine/master/configure-ansible-centos.sh"]}' \
      --protected-settings '{"commandToExecute": "./configure-ansible-centos.sh"}'
      ```
+
+6. Verify you can login to your Ansible VM from your local system using SSH:
+
+  ```
+  $ ssh -i ansible_rsa azureuser@<vm_ip_address>
+  [azureuser@QuickstartAnsible-vm ~]$
+  [azureuser@QuickstartAnsible-vm ~]$
+  ```
