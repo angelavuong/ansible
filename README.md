@@ -1,5 +1,9 @@
 # Azure + Ansible Demo
 
+In this demo, we will learn how to:
+1. Install and configure Ansible in Azure
+2. Use Ansible Playbooks to deploy a CentOS VM in Azure
+
 ## Prerequisites
 
 ### Obtain Azure Account
@@ -88,8 +92,8 @@
     First, let's create a credentials file.
 
     ```
-    mkdir ~/.azure
-    vi ~/.azure/credentials
+    [azureuser@QuickstartAnsible-vm .ssh]$ mkdir ~/.azure
+    [azureuser@QuickstartAnsible-vm .ssh]$ vi ~/.azure/credentials
 
     [default]
     subscription_id=<your-subscription_id>
@@ -104,10 +108,10 @@
     Next, let's set up the environment variables with the same values:
 
     ```
-    export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
-    export AZURE_CLIENT_ID=<security-principal-appid>
-    export AZURE_SECRET=<security-principal-password>
-    export AZURE_TENANT=<security-principal-tenant>
+    [azureuser@QuickstartAnsible-vm .ssh]$ export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+    [azureuser@QuickstartAnsible-vm .ssh]$ export AZURE_CLIENT_ID=<security-principal-appid>
+    [azureuser@QuickstartAnsible-vm .ssh]$ export AZURE_SECRET=<security-principal-password>
+    [azureuser@QuickstartAnsible-vm .ssh]$ export AZURE_TENANT=<security-principal-tenant>
     ```
 
 8. Verify Ansible is installed (and check version):
@@ -125,7 +129,7 @@
     [azureuser@QuickstartAnsible-vm ~]$
     ```
 
-## Part 2: Build VM using Ansible Playbooks
+## Part 2: Build CentOS VM using Ansible Playbooks
 
 1. Before we start, generate SSH keys on your Ansible VM:
 ```
@@ -217,7 +221,7 @@ Full details and explanation on each playbook section can be found [here](https:
 $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
 ```
 
-5. Verify no errors/failures occurred during the run.
+5. Verify no errors/failures occurred during the run. You can also verify the VM was created through the Azure management UI
 
 6. SSH from your Ansible VM to your new VM (called myVM) via SSH:
 
