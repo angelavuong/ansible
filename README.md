@@ -82,3 +82,29 @@
   [azureuser@QuickstartAnsible-vm ~]$
   [azureuser@QuickstartAnsible-vm ~]$
   ```
+
+7. Set up your Ansible credentials for the VM.
+
+    First, let's create a credentials file.
+
+    ```
+    mkdir ~/.azure
+    vi ~/.azure/credentials
+
+    [default]
+    subscription_id=<your-subscription_id>
+    client_id=<security-principal-appid>
+    secret=<security-principal-password>
+    tenant=<security-principal-tenant>
+    ```
+
+    Insert values for credentials using the values you obtained for the service principal values.
+
+    Next, let's set up the environment variables with the same values:
+
+    ```
+    export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+    export AZURE_CLIENT_ID=<security-principal-appid>
+    export AZURE_SECRET=<security-principal-password>
+    export AZURE_TENANT=<security-principal-tenant>
+    ```
