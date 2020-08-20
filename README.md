@@ -226,3 +226,8 @@ $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
 [azureuser@myVM ~]$
 [azureuser@myVM ~]$
 ```
+
+
+## Resources:
+1. [Microsoft Docs - Build Ansible VM in Azure](https://docs.microsoft.com/en-us/azure/developer/ansible/install-on-linux-vm)
+2. [Microsoft Docs - How to build VM using Ansible Playbooks](https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fansible%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fbreadcrumb%2Ftoc.json#complete-sample-ansible-playbook)
