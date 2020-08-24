@@ -438,6 +438,123 @@ The Apache HTTP Server is a powerful, efficient, and extensible
 web server.
 ```
 
+## Part 5: Create second VM in Azure for database
+
+Let's create another VM so we can use to install Mongo DB.
+
+1. Create the VM in Azure using Ansible:
+
+Build a new playbook called ```azure_create_mongodb_vm.yml``` that will create our second VM:
+```
+- name: Create Azure Mongo DB VM
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: myResourceGroup
+      allocation_method: Static
+      name: myPublicIP2
+    register: output_ip_address
+  - name: Dump public IP for VM which will be created
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+  - name: Create virtual network interface card
+    azure_rm_networkinterface:
+      resource_group: myResourceGroup
+      name: myNIC2
+      virtual_network: myVnet
+      subnet: mySubnet
+      public_ip_name: myPublicIP2
+      security_group: myNetworkSecurityGroup
+    - name: Create VM
+    azure_rm_virtualmachine:
+      resource_group: myResourceGroup
+      name: myVM2
+      vm_size: Standard_DS1_v2
+      admin_username: azureuser
+      ssh_password_enabled: false
+      ssh_public_keys:
+        - path: /home/azureuser/.ssh/authorized_keys
+          key_data: <your_public_key>
+      network_interfaces: myNIC2
+      image:
+        offer: CentOS
+        publisher: OpenLogic
+        sku: '7.5'
+        version: latest
+```
+
+Verify you can login to the newly created VM:
+```
+$ ssh azureuser@<public_ip_address>
+[azureuser@myVM2 ~]$
+```
+
+2. Add myVM2 to your Ansible host file:
+```
+$ sudo vi /etc/ansible/hosts
+myVM ansible_host=<public_ip_address>
+myVM2 ansible_host=<public_ip_address>
+```
+
+3. Create playbook called ```mysql.yml``` that will install MySQL on myVM2:
+
+```
+---
+- name: MySQL DB server installed
+  hosts: myVM2
+
+  become: true
+  tasks:
+
+  - name: Obtain mysql 7.5 community release repository
+    yum:
+      name: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+      state: present
+  - name: Yum package update
+    yum:
+      name: '*'
+      state: present
+  - name: Install mysql-server
+    yum:
+      name: mysql-server
+      state: latest
+  - name: MySQL enabled and running
+    service:
+      name: mysqld
+      enabled: true
+      state: started
+```
+
+4. Run the ```mysql.yml``` playbook to install mysqld on myVM2:
+
+```
+$ ansible-playbook mysql.yml
+```
+
+5. Login to myVM2 and verify the database is installed:
+
+```
+$ ssh azureuser@<myVM2_public_ip_address>
+[azureuser@myVM2 ~]$ mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.6.49 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
+
+NOTE: When prompted for the password, pass <ENTER> if no password is set.
 
 ## Resources:
 1. [Microsoft Docs - Build Ansible VM in Azure](https://docs.microsoft.com/en-us/azure/developer/ansible/install-on-linux-vm)
