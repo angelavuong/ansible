@@ -5,6 +5,7 @@ In this demo, we will learn how to:
 * [Part 2: Use Ansible Playbooks to deploy a CentOS VM in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-2-build-centos-vm-using-ansible-playbooks)
 * [Part 3: Build an inventory file](https://github.com/angelavuong/ansible_azure_workshop#part-3-build-an-inventory-file)
 * [Part 4: Install Apache on VM](https://github.com/angelavuong/ansible_azure_workshop#part-4-install-apache-on-vm)
+* [Part 5: Create second VM in Azure for database](https://github.com/angelavuong/ansible_azure_workshop#part-5-create-second-vm-in-azure-for-database)
 
 ## Prerequisites
 
@@ -440,13 +441,13 @@ web server.
 
 ## Part 5: Create second VM in Azure for database
 
-Let's create another VM so we can use to install Mongo DB.
+Let's create another VM so we can use to install MySQL.
 
 1. Create the VM in Azure using Ansible:
 
-Build a new playbook called ```azure_create_mongodb_vm.yml``` that will create our second VM:
+Build a new playbook called ```azure_create_mysql_vm.yml``` that will create our second VM:
 ```
-- name: Create Azure Mongo DB VM
+- name: Create Azure mySQL VM
   hosts: localhost
   connection: local
   tasks:
@@ -484,6 +485,8 @@ Build a new playbook called ```azure_create_mongodb_vm.yml``` that will create o
         sku: '7.5'
         version: latest
 ```
+
+NOTE: Be sure to replace ```<your_public_key>``` before moving on.
 
 Verify you can login to the newly created VM:
 ```
@@ -561,3 +564,5 @@ NOTE: When prompted for the password, pass <ENTER> if no password is set.
 2. [Microsoft Docs - How to build VM using Ansible Playbooks](https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fansible%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fbreadcrumb%2Ftoc.json#complete-sample-ansible-playbook)
 3. [Ansible - How to build your inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory)
 4. [Ansible - Creating Apache Playbook](https://github.com/ansible/workshops/tree/devel/exercises/ansible_rhel/1.3-playbook)
+5. [Ansible - yum package manager](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
+6. [MySQL for Centos 7.5](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/)
