@@ -4,7 +4,7 @@ In this demo, we will learn how to:
 * [Part 1: Install and configure Ansible in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-1-build-ansible-vm-in-azure)
 * [Part 2: Use Ansible Playbooks to deploy a CentOS VM in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-2-build-centos-vm-using-ansible-playbooks)
 * [Part 3: Build an inventory file](https://github.com/angelavuong/ansible_azure_workshop#part-3-build-an-inventory-file)
-
+* [Part 4: Install Apache on VM](https://github.com/angelavuong/ansible_azure_workshop#part-4-install-apache-on-vm)
 
 ## Prerequisites
 
