@@ -372,7 +372,7 @@ Let's build a playbook which installs the latest Apache on our VM and creates a 
   ```
   ---
   - name: Apache server installed
-    hosts: node1
+    hosts: myVM
     become: true
     tasks:
 
