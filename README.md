@@ -324,46 +324,123 @@ $ ansible-playbook ~/ansible_azure_workshop/azure_create_complete_vm.yml
 
 6. SSH from your Ansible VM to your new VM (called myVM) via SSH:
 
-```
-[azureuser@QuickstartAnsible-vm .ssh]$ ssh azureuser@<ip-address>
-[azureuser@myVM ~]$
-[azureuser@myVM ~]$
-```
+  ```
+  [azureuser@QuickstartAnsible-vm .ssh]$ ssh azureuser@<ip-address>
+  [azureuser@myVM ~]$
+  [azureuser@myVM ~]$
+  ```
 
 ## Part 3: Build an inventory file
 
 1. Let's create an inventory file on our Ansible host that includes the new VM's public IP address
 
-```
-[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo mkdir /etc/ansible
-[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo touch /etc/ansible/hosts
-[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ vi /etc/ansible/hosts
-```
+  ```
+  [azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo mkdir /etc/ansible
+  [azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ sudo touch /etc/ansible/hosts
+  [azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ vi /etc/ansible/hosts
+  ```
 
-And add the name of your node with its allocated public IP address:
-```
-myVM ansible_host=<public_ip_address>
-```
+  And add the name of your node with its allocated public IP address:
+  ```
+  myVM ansible_host=<public_ip_address>
+  ```
 
-Save and close (```:wq!```).
+  Save and close (```:wq!```).
 
 2. Let's run a quick ping test to the host using the Ansible CLI:
 
-```
-[azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ ansible all -m ping
-myVM | SUCCESS => {
+  ```
+  [azureuser@QuickstartAnsible-vm ansible_azure_workshop]$ ansible all -m ping
+  myVM | SUCCESS => {
 
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-```
+      "ansible_facts": {
+          "discovered_interpreter_python": "/usr/bin/python"
+      },
+      "changed": false,
+      "ping": "pong"
+  }
+  ```
 
 Great! We know our inventory file correctly lists our VM and Ansible is able to reach it!
+
+## Part 4: Install Apache on VM
+
+Let's build a playbook which installs the latest Apache on our VM and creates a web-page.
+
+1. Create a playbook called apache.yml with the following content:
+
+  ```
+  ---
+  - name: Apache server installed
+    hosts: node1
+    become: true
+    tasks:
+
+    - name: latest Apache version installed
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Apache enabled and running
+      service:
+        name: httpd
+        enabled: true
+        state: started
+
+    - name: copy index.html
+      copy:
+        src: web.html
+        dest: /var/www/html/index.html
+  ```
+
+2. Create a web-page HTML file called ```web.html``` for Apache:
+
+  ```
+  <body>
+  <h1>Apache is running fine</h1>
+  </body>
+  ```
+
+3. Then run the playbook:
+
+  ```
+  $ ansible-playbook apache.yml
+  ```
+
+4. Connect to the VM via SSH:
+
+  ```
+  $ ssh azureuser@<ip_address>
+  ```
+
+5. Verify Apache (HTTPD) was installed on the host:
+```
+azureuser@myVM ~]$ rpm -qi httpd
+Name        : httpd
+Version     : 2.4.6
+Release     : 93.el7.centos
+Architecture: x86_64
+Install Date: Mon 24 Aug 2020 01:51:31 PM UTC
+Group       : System Environment/Daemons
+Size        : 9821040
+License     : ASL 2.0
+Signature   : RSA/SHA256, Fri 03 Apr 2020 08:53:10 PM UTC, Key ID 24c6a8a7f4a80eb5
+Source RPM  : httpd-2.4.6-93.el7.centos.src.rpm
+Build Date  : Thu 02 Apr 2020 01:15:44 PM UTC
+Build Host  : x86-01.bsys.centos.org
+Relocations : (not relocatable)
+Packager    : CentOS BuildSystem <http://bugs.centos.org>
+Vendor      : CentOS
+URL         : http://httpd.apache.org/
+Summary     : Apache HTTP Server
+Description :
+The Apache HTTP Server is a powerful, efficient, and extensible
+web server.
+```
+
 
 ## Resources:
 1. [Microsoft Docs - Build Ansible VM in Azure](https://docs.microsoft.com/en-us/azure/developer/ansible/install-on-linux-vm)
 2. [Microsoft Docs - How to build VM using Ansible Playbooks](https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fansible%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdeveloper%2Fbreadcrumb%2Ftoc.json#complete-sample-ansible-playbook)
 3. [Ansible - How to build your inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory)
+4. [Ansible - Creating Apache Playbook](https://github.com/ansible/workshops/tree/devel/exercises/ansible_rhel/1.3-playbook)
