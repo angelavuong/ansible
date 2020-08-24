@@ -1,7 +1,5 @@
 # Azure + Ansible Demo
 
-![Azure Deployment](https://drive.google.com/file/d/1N2XViJ5hQF71sorCjGPfC3bLKOrmSA8b/view?usp=sharing)
-
 In this demo, we will learn how to:
 * [Part 1: Install and configure Ansible in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-1-build-ansible-vm-in-azure)
 * [Part 2: Use Ansible Playbooks to deploy a CentOS VM in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-2-build-centos-vm-using-ansible-playbooks)
