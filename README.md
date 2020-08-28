@@ -490,6 +490,11 @@ Build a new playbook called ```azure_create_mysql_vm.yml``` that will create our
 
 NOTE: Be sure to replace ```<your_public_key>``` before moving on.
 
+Run the playbook:
+```
+$ ansible-playbook azure_create_mysql_vm.yml
+```
+
 Verify you can login to the newly created VM:
 ```
 $ ssh azureuser@<public_ip_address>
