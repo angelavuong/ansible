@@ -15,13 +15,33 @@ In this demo, we will learn how to:
 
 1. If you don't already have one, you can get a [free one](https://azure.microsoft.com/en-us/free/).
 
-2. Install Azure CLI on your local system. For macOS, you can do this via homebrew:
+2. Install Azure CLI on your local system.
 
+For macOS, you can do this via homebrew:
   ```
   % brew install azure-cli
   ```
 
   NOTE: Azure CLI has a dependency on the Homebrew ```python3``` package and will install on it.
+
+For RHEL, you need to import the Microsoft repository key first:
+```
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+```
+Then, create local azure-cli repository info:
+```
+sudo sh -c 'echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+```
+Finally, do a yum package install:
+```
+sudo yum install azure-cli
+```
+
 
   You can login to Azure via CLI now:
   ```
