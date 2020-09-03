@@ -1,6 +1,6 @@
 ---
 - name: Apache server installed
-  hosts: myVM
+  hosts: hosts
   become: true
   tasks:
 

@@ -41,6 +41,7 @@ Finally, do a yum package install:
 ```
 sudo yum install azure-cli
 ```
+More details are [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-yum?view=azure-cli-latest).
 
 
   You can login to Azure via CLI now:
