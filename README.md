@@ -1,6 +1,6 @@
 # Azure + Ansible Demo
 
-![Azure Deployment](https://github.com/angelavuong/ansible_azure_workshop/blob/master/Azure%20Deployment.png)
+![Azure Deployment](https://github.com/angelavuong/ansible_azure_demo/blob/master/images/Azure%20Deployment.png)
 
 In this demo, we will learn how to:
 * [Part 1: Install and configure Ansible in Azure](https://github.com/angelavuong/ansible_azure_workshop#part-1-build-ansible-vm-in-azure)
