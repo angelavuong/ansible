@@ -35,3 +35,11 @@ Minimum:
   ```
   [azureuser@QuickstartAnsible-vm ansible-tower-setup-3.7.1-1]$ sudo ./setup.sh
   ```
+
+5. Once installed, you should be able to reach Tower web-console via the IP address of the server:
+
+```
+https://[tower-ip-address]
+```
+
+The default user is ```admin``` and the password was specified in the inventory file.
