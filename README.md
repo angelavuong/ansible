@@ -154,6 +154,14 @@ More details are [here](https://docs.microsoft.com/en-us/cli/azure/install-azure
       python version = 3.6.8 (default, Apr  2 2020, 13:34:55) [GCC 4.8.5 20150623 (Red Hat 4.8.5-39)]
     [azureuser@QuickstartAnsible-vm ~]$
     ```
+9. Install required Ansible python packages to manage your hosts:
+
+   ```
+   $ pip install azure-mgmt-compute
+   $ pip install azure-mgmt-network 
+   $ pip install azure-mgmt-storage 
+   $ pip install azure-mgmt-resource 
+   ``` 
 
 ## Part 2: Build CentOS VM using Ansible Playbooks
 
