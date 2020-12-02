@@ -156,11 +156,13 @@ More details are [here](https://docs.microsoft.com/en-us/cli/azure/install-azure
     ```
 9. Install required Ansible python packages to manage your hosts:
 
-   ```
-   $ pip install azure-mgmt-compute
-   $ pip install azure-mgmt-network 
-   $ pip install azure-mgmt-storage 
-   $ pip install azure-mgmt-resource 
+   Create a file called requirements-azure.txt (https://github.com/ansible/ansible/blob/stable-2.7/packaging/requirements/requirements-azure.txt).
+   Install the required packages using pip: ```pip install -r requirements-azure.txt``` 
+
+   In addition, please install the following packages:
+   ``` 
+   $ pip install paramiko -U
+   $ pip install netmiko -U
    ``` 
 
 ## Part 2: Build CentOS VM using Ansible Playbooks
