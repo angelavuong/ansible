@@ -1,11 +1,11 @@
-# Ansible
+# Ansible Resources
 
-## Table of Contents
-1. [Ansible on Azure](https://github.com/angelavuong/ansible/tree/main/ansible_azure-demo)
-2. [Ansible Tower](https://github.com/angelavuong/ansible/tree/main/ansible_tower)
-
-## Learn Ansible 
+## Getting started with Ansible
 - [Ansible.com](https://www.ansible.com/)
 - [Ansible Docs](https://docs.ansible.com/ansible/latest/index.html)
 - [Ansible Galaxy](https://galaxy.ansible.com/)
+
+## Authentication
+- [Configuring AAP to use LDAP authentication and AD](https://hailsatan.xyz/blog/posts/configuring-awx-or-ansible-tower-to-use-ldap-authentication/)
+
 
