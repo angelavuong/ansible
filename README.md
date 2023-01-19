@@ -2,14 +2,19 @@
 
 Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 
+---
 # Table of Contents
 1. [General Resources](#general-resources)
 2. [Ansible Automation Platform](#ansible-automation-platform )
 3. [AAP-Operator Install (OpenShift)](#aap-operator-install)
 4. [Automation Hub](#automation-hub)
-5. [Use-Case: Infrastructure (RHEL + Satellite)](#use-case-infrastructure)
-6. [Use-Case: Networking](#use-case-networking)
-7. [Use-Case: Cloud](#use-case-cloud)
+5. [Use-Case: Applications](#use-case-applications)
+7. [Use-Case: Networking](#use-case-networking)
+8. [Use-Case: Cloud](#use-case-cloud)
+9. [Use-Case: Security](#use-case-security)
+10. [Use-Case: Infrastructure (RHEL + Satellite)](#use-case-infrastructure)
+11. [Use-Case: Edge](#use-case-edge)
+---
 
 ## General Resources 
 - [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html)
@@ -30,8 +35,7 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 - [Blog] [Three new Ansible automation hub updates](https://www.ansible.com/blog/3-new-ansible-automation-hub-updates)
 - [Blog] [Importing and Exporting Collections in Automation Hub](https://www.ansible.com/blog/importing/exporting-collections-in-automation-hubs)
 
-## Use-Case: Infrastructure
-- [E-book] [Automate Red Hat Enterprise Linux, powered by Red Hat Ansible Automation Platform and Red Hat Satellite](https://www.redhat.com/rhdc/managed-files/li-automate-linux-satellite-e-book-172606-202212-en.pdf)
+## Use-Case: Applications
 
 ## Use-Case: Networking
 - [E-book] [Deliver high performance applications across the network with Red Hat and F5](https://www.redhat.com/en/engage/network-automation-everyone-20221208?sc_cid=7013a0000026HqEAAU&blaid=4015065)
@@ -39,4 +43,11 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 
 ## Use-Case: Cloud
 - [Blog] [Walking on Clouds with Ansible - Certified Terraform Collection](https://www.ansible.com/blog/walking-on-clouds-with-ansible)
+
+## Use-Case: Security
+
+## Use-Case: Infrastructure
+- [E-book] [Automate Red Hat Enterprise Linux, powered by Red Hat Ansible Automation Platform and Red Hat Satellite](https://www.redhat.com/rhdc/managed-files/li-automate-linux-satellite-e-book-172606-202212-en.pdf)
+
+## Use-Case: Edge
 
