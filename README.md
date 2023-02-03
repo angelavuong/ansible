@@ -10,7 +10,7 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 4. [Automation Hub](#automation-hub)
 5. [Use-Case: Applications](#use-case-applications)
 7. [Use-Case: Networking](#use-case-networking)
-8. [Use-Case: Cloud](#use-case-cloud)
+8. [Use-Case: Cloud + OpenShift](#use-case-cloud-and-openshift)
 9. [Use-Case: Security](#use-case-security)
 10. [Use-Case: Infrastructure (RHEL + Satellite)](#use-case-infrastructure)
 11. [Use-Case: Edge](#use-case-edge)
@@ -41,8 +41,9 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 - [E-book] [Deliver high performance applications across the network with Red Hat and F5](https://www.redhat.com/en/engage/network-automation-everyone-20221208?sc_cid=7013a0000026HqEAAU&blaid=4015065)
 - [E-book] [Network automation guide: Expand automation across multivender networks](https://www.redhat.com/en/resources/network-automation-guide-ebook)
 
-## Use-Case: Cloud
+## Use-Case: Cloud and OpenShift
 - [Blog] [Walking on Clouds with Ansible - Certified Terraform Collection](https://www.ansible.com/blog/walking-on-clouds-with-ansible)
+- [GitHub] [Create VMs within OpenShift Virt using Ansible](https://github.com/zer0glitch/ocpv-ansible-example)
 
 ## Use-Case: Security
 
