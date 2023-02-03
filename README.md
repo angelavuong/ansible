@@ -24,7 +24,7 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 ## Ansible Automation Platform 
 - [Blog] [What's new in Ansible Automation Platform 2.3](https://www.ansible.com/blog/whats-new-in-red-hat-ansible-automation-platform-2.3)
 - [Blog] [Addressing NetOps issues with Event-Driven Ansible](https://www.ansible.com/blog/addressing-netops-issues-with-event-driven-ansible)
-- [Blog] [Automate like an expert with Ansible validated content](https://www.redhat.com/en/blog/automate-expert-ansible-validated-content) - Dec 2022
+- [Blog] [Automate like an expert with Ansible validated content](https://www.redhat.com/en/blog/automate-expert-ansible-validated-content)
 - [Demo] [Getting started with EDA and Ansible Rulebooks](https://youtu.be/aqQq5vD8-n0)
 
 ## AAP-Operator Install
