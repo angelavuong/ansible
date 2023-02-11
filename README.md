@@ -8,7 +8,8 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 2. [Ansible Automation Platform](#ansible-automation-platform )
 3. [AAP-Operator Install (OpenShift)](#aap-operator-install)
 4. [Automation Hub](#automation-hub)
-5. [Use-Case: Applications](#use-case-applications)
+5. [Event Driven Ansible (EDA)](#event-driven-ansible)
+6. [Use-Case: Applications](#use-case-applications)
 7. [Use-Case: Networking](#use-case-networking)
 8. [Use-Case: Cloud + OpenShift](#use-case-cloud-and-openshift)
 9. [Use-Case: Security](#use-case-security)
@@ -34,6 +35,12 @@ Here is my collection of bookmarked Ansible resources (blogs, videos, e-books).
 - [Video] [Red Hat Ansible Automation Platform Automation Hub Overview](https://youtu.be/_aEX3HkjayI)
 - [Blog] [Three new Ansible automation hub updates](https://www.ansible.com/blog/3-new-ansible-automation-hub-updates)
 - [Blog] [Importing and Exporting Collections in Automation Hub](https://www.ansible.com/blog/importing/exporting-collections-in-automation-hubs)
+
+## Event Driven Ansible
+- [Event-Driven Ansible web page](https://www.ansible.com/use-cases/event-driven-automation)
+- [Blog] [Getting started with Event-Driven Ansible](https://www.ansible.com/blog/getting-started-with-event-driven-ansible)
+- [Demo] [Getting started with Event Driven Ansible and Rulebooks](https://www.youtube.com/watch?v=aqQq5vD8-n0)
+- [Demo] [Event-Driven Ansible + GitOps](https://www.youtube.com/watch?v=Bb51DftLbPE)
 
 ## Use-Case: Applications
 
